@@ -1,0 +1,82 @@
+# Student Grade Tracker Program
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.grades = []
+
+    def add_grade(self, grade):
+        self.grades.append(grade)
+
+    def average_grade(self):
+        if not self.grades:
+            return 0
+        return sum(self.grades) / len(self.grades)
+
+    def __str__(self):
+        return f"Student: {self.name}, Average Grade: {self.average_grade():.2f}"
+
+class GradeTracker:
+    def __init__(self):
+        self.students = {}
+
+    def add_student(self, name):
+        if name in self.students:
+            print(f"Student {name} already exists.")
+        else:
+            self.students[name] = Student(name)
+            print(f"Student {name} added.")
+
+    def add_grade(self, name, grade):
+        if name not in self.students:
+            print(f"Student {name} does not exist.")
+        else:
+            self.students[name].add_grade(grade)
+            print(f"Grade {grade} added for {name}.")
+
+    def view_student(self, name):
+        if name not in self.students:
+            print(f"Student {name} does not exist.")
+        else:
+            print(self.students[name])
+
+    def view_all_students(self):
+        if not self.students:
+            print("No students found.")
+        else:
+            for student in self.students.values():
+                print(student)
+
+def main():
+    tracker = GradeTracker()
+    
+    while True:
+        print("\nStudent Grade Tracker")
+        print("1. Add Student")
+        print("2. Add Grade")
+        print("3. View Student")
+        print("4. View All Students")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == '1':
+            name = input("Enter the student's name: ")
+            tracker.add_student(name)
+        elif choice == '2':
+            name = input("Enter the student's name: ")
+            grade = float(input("Enter the grade: "))
+            tracker.add_grade(name, grade)
+        elif choice == '3':
+            name = input("Enter the student's name: ")
+            tracker.view_student(name)
+        elif choice == '4':
+            tracker.view_all_students()
+        elif choice == '5':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
+
+if __name__ == "__main__":
+    main()
