@@ -61,3 +61,6 @@ The Student Grade Tracker program is a console-based application written in Pyth
 - **Interactive Menu:** Provides a user-friendly way to interact with the system through a simple text-based menu.
 
 This program is a basic implementation that can be extended with additional features like editing grades, removing students, or saving data to a file. It’s designed to be straightforward and easy to use for managing student grades in a console environment.
+
+**Output:**
+![Screenshot 2024-08-22 113400](https://github.com/user-attachments/assets/3ebf4c07-b90e-45d8-9626-1b2fdc9f1428)
